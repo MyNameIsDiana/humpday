@@ -15,3 +15,12 @@ It would be nice to save a history of which images I've sent each person. That w
 
 Yes, this is a silly app.
 
+---
+
+ISSUES:
+
+How do I add names/phone numbers to this without putting them on GitHub? I don't want those cell numbers published. Local storage on user's machine?
+
+How do I persist the data I add?
+
+
