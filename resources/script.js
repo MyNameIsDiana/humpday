@@ -7,14 +7,14 @@ const people = new function() {
     //display in HTML file
 
     //create
-    //need function here to add new meme to the collection
-    //is there a way to check if the one being added is already included? not sure
+    //need function here to add new name to the collection
+    //need to check if name or phone number is already included, and reject duplicates
 
     //edit
     //need a way to edit each person's display name and phone number
 
     //delete
-    //need function here to remove meme from the collection
+    //need function here to remove name from the collection
 }
 
 const camels = new function() {
@@ -46,7 +46,7 @@ const mikes = new function(){
     this.mike_memes = [];
 
     //read 
-    //need function here to grab all the camel memes -- loop through camel_memes array and display them
+    //need function here to grab all the Mike memes -- loop through mike_memes array and display them
     //maybe count them
     //display in HTML file the images and the count
 
@@ -71,5 +71,5 @@ const mikes = new function(){
     // camel or mike? click image to choose which kind of meme to send
         //that click leads to display of all the memes in that category
         //can click radio button to make choice OR can click pick-one button for random choice
-        
 
+//is there a way for this app to remind me it's Wednesday? maybe it can text me on Wednesday morning.
