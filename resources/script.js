@@ -22,7 +22,7 @@ const people = new function() {
     //display in HTML file the images and the count
 const camels = new function() {
     //in HTML show all the camel memes I've added
-    this.item = document.getElementById('display-all-the-camels');
+    //this.item = document.getElementById('display-all-the-camels');
     //the array of images -- need to start with a few already in here
     this.camel_memes = ["resources/images/camel_memes/camelmeme1.jpeg",
                         "resources/images/camel_memes/camelmeme2.jpeg",
@@ -54,17 +54,22 @@ const camels = new function() {
 
 const mikes = new function(){
     //in HTML show all the Mike memes I've added
-    this.item = document.getElementById('mike-memes');
+    //this.item = document.getElementById('display-all-the-mikes');
      //the array of images -- need to start with a few already in here
-    this.mike_memes = [];
+    this.mike_memes = ["resources/images/mike_memes/mikememe1.jpeg",
+                       "resources/images/mike_memes/mikememe2.jpeg",
+                       "resources/images/mike_memes/mikememe3.jpeg",
+                       "resources/images/mike_memes/mikememe4.jpeg",
+                       "resources/images/mike_memes/mikememe5.jpeg"];
     //loop through array and display pics                    
     if (this.mike_memes.length > 0) {
+        //need variable here instead of document.body.appendchild so I can put this where I want
+        let displayAllTheMikes = document.getElementById('display-all-the-mikes')
         for (i = 0; i < this.mike_memes.length; i++) {
             //need to use Image() and appendChild to add to dom
             let currentMikeMeme = new Image();
             currentMikeMeme.src = this.mike_memes[i];
-            document.body.appendChild(currentMikeMeme);
-
+            displayAllTheMikes.appendChild(currentMikeMeme);
         }
     }
 
