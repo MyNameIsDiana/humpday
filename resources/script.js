@@ -16,18 +16,31 @@ const people = new function() {
     //delete
     //need function here to remove name from the collection
 }
-
-const camels = new function() {
-    //in HTML show all the camel memes I've added
-    this.item = document.getElementById('camel-memes');
-    //the array of images -- need to start with a few already in here
-    this.camel_memes = [];
-
-    //read 
-    //need function here to grab all the camel memes -- loop through camel_memes array and display them
+//read
+//need function here to grab all the camel memes -- loop through camel_memes array and display them
     //maybe count them
     //display in HTML file the images and the count
+const camels = new function() {
+    //in HTML show all the camel memes I've added
+    this.item = document.getElementById('display-all-the-camels');
+    //the array of images -- need to start with a few already in here
+    this.camel_memes = ["resources/images/camel_memes/camelmeme1.jpeg",
+                        "resources/images/camel_memes/camelmeme2.jpeg",
+                        "resources/images/camel_memes/camelmeme3.jpeg",
+                        "resources/images/camel_memes/camelmeme4.jpeg",
+                        "resources/images/camel_memes/camelmeme5.jpeg"];
+    //loop through array and display pics                    
+    if (this.camel_memes.length > 0) {
+        //need variable here instead of document.body.appendchild so I can put this where I want
+        let displayAllTheCamels = document.getElementById('display-all-the-camels')
+        for (i = 0; i < this.camel_memes.length; i++) {
+            //need to use Image() and appendChild to add to dom
+            let currentCamelMeme = new Image();
+            currentCamelMeme.src = this.camel_memes[i];
+            displayAllTheCamels.appendChild(currentCamelMeme);
 
+        }
+    }
     //create
     //need function here to add new meme to the collection
     //is there a way to check if the one being added is already included? not sure
@@ -42,24 +55,36 @@ const camels = new function() {
 const mikes = new function(){
     //in HTML show all the Mike memes I've added
     this.item = document.getElementById('mike-memes');
-    //the array of images -- need to start with a few already in here
+     //the array of images -- need to start with a few already in here
     this.mike_memes = [];
+    //loop through array and display pics                    
+    if (this.mike_memes.length > 0) {
+        for (i = 0; i < this.mike_memes.length; i++) {
+            //need to use Image() and appendChild to add to dom
+            let currentMikeMeme = new Image();
+            currentMikeMeme.src = this.mike_memes[i];
+            document.body.appendChild(currentMikeMeme);
 
-    //read 
-    //need function here to grab all the Mike memes -- loop through mike_memes array and display them
-    //maybe count them
-    //display in HTML file the images and the count
+        }
+    }
 
-    //create
-    //need function here to add new meme to the collection
-    //is there a way to check if the one being added is already included? not sure
 
-    //edit
-    //don't think an edit option is needed
+//create
+//need function here to add new meme to the collection
+//is there a way to check if the one being added is already included? not sure
 
-    //delete
-    //need function here to remove meme from the collection
+//edit
+//don't think an edit option is needed
+
+//delete
+//need function here to remove meme from the collection
 }
+
+
+
+
+
+
 //need function to allow user to make random choice
 //maybe also display grid of memes so user can choose specific one -- radio buttons?
 
