@@ -23,4 +23,8 @@ How do I add names/phone numbers to this without putting them on GitHub? I don't
 
 How do I persist the data I add?
 
+How do I add photos to an array?
+
+What about gifs -- things with movement?
+
 
