@@ -1,11 +1,41 @@
-const people = new function() {
-    //in HTML show list of people -- names and phone numbers -- who should receive texts
+class PersonInfo {
+    //eventually this will house name, phone number, list of memes already sent
+    constructor() {
+        //array of objects that starts empty
+        this.people_list = [];
+    }
+    
+    //create
+    addPerson(first_name, last_name, phone_number) {
+
+        const person = {
+        first_name: first_name,
+        last_name: last_name,
+        phone_number: phone_number
+        }
+        //add the new person with details
+        this.people_list.push(person);
+    }
+
     //read 
-    //need function here to grab all the names/numbers -- loop through array and display them
+    //need function here to grab all the names/numbers -- loop through object and display them
     //maybe count them
     //should this save/show the last few memes sent? that way it doesn't send the same meme over and over. maybe don't display the history on main page, but instead display if you click on the name
     //display in HTML file
+    //loop through array and display pics    
+    fetchAllThePeople() {
+        if (this.people_list.length > 0) {
 
+    }
+    //in HTML show list of people -- names and phone numbers -- who should receive texts
+    
+    //this.item = document.getElementById('people');
+    //populating object for testing only
+    
+    }
+   
+
+    
     //create
     //need function here to add new name to the collection
     //need to check if name or phone number is already included, and reject duplicates
@@ -16,6 +46,7 @@ const people = new function() {
     //delete
     //need function here to remove name from the collection
 }
+ 
 //read
 //need function here to grab all the camel memes -- loop through camel_memes array and display them
     //maybe count them
@@ -38,7 +69,6 @@ const camels = new function() {
             let currentCamelMeme = new Image();
             currentCamelMeme.src = this.camel_memes[i];
             displayAllTheCamels.appendChild(currentCamelMeme);
-
         }
     }
     //create
