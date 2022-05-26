@@ -1,37 +1,49 @@
 class PersonInfo {
-    //eventually this will house name, phone number, list of memes already sent
-    constructor() {
-        //array of objects that starts empty
+    //need to assign an id number to each person for later use
+    //starts with 0 so the first person added is 1
+    constructor(personId = 0) {
+        //array of person objects that starts empty
         this.people_list = [];
+        this.personId = personId;
     }
     
-    //create
+    //create method; takes in info from form
+    //might add other fields later
     addPerson(first_name, last_name, phone_number) {
 
+        //increment personId so it's a new sequential number for each new person
+        this.personId ++;
+
+        //might add other fields later
         const person = {
-        first_name: first_name,
-        last_name: last_name,
-        phone_number: phone_number
+            personId: this.personId, 
+            //use getElementById to grab input from form fields
+            first_name: document.getElementById('first_name').value,
+            last_name: document.getElementById('last_name').value,
+            phone_number: document.getElementById('phone_number').value
         }
-        //add the new person with details
+        //adds the new person object to the array
         this.people_list.push(person);
     }
 
-    //read 
-    //need function here to grab all the names/numbers -- loop through object and display them
+
+//need function here to grab all the names/numbers -- loop through object and display them
     //maybe count them
     //should this save/show the last few memes sent? that way it doesn't send the same meme over and over. maybe don't display the history on main page, but instead display if you click on the name
     //display in HTML file
     //loop through array and display pics    
+    //read method
     fetchAllThePeople() {
+        this.item = document.getElementById('people_list');
+        let peopleToLoop = '';
         if (this.people_list.length > 0) {
-
-    }
-    //in HTML show list of people -- names and phone numbers -- who should receive texts
-    
-    //this.item = document.getElementById('people');
-    //populating object for testing only
-    
+            ////asdf how do loop through array of objects and display each field in object
+            people_list.forEach(people_list => {
+                for (let person in people_list) {
+                    peopleToLoop += `<tr> <td> ${person.first_name} ${person.last_name} ${person.phone_number} </td> <tr>`;
+                }
+            });  
+        return peopleToLoop;      
     }
    
 
@@ -45,8 +57,19 @@ class PersonInfo {
 
     //delete
     //need function here to remove name from the collection
+   // deletePerson(personId)
+    }
+    
 }
- 
+
+const newPerson = new PersonInfo();
+
+document.getElementById("addPersonForm").addEventListener("submit", function(event) {
+    console.log('Working!'); 
+    event.preventDefault();
+    newPerson.addPerson();
+    console.log(newPerson.people_list);
+});
 //read
 //need function here to grab all the camel memes -- loop through camel_memes array and display them
     //maybe count them
