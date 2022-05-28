@@ -34,18 +34,28 @@ class PersonInfo {
     //loop through array and display pics    
     //read method
     fetchAllThePeople() {
-        this.item = document.getElementById('people_list');
+        console.log('here');
+
+        this.item = document.getElementById('people-list');
         let peopleToLoop = '';
         if (this.people_list.length > 0) {
-            ////asdf how do loop through array of objects and display each field in object
-            people_list.forEach(people_list => {
-                for (let person in people_list) {
-                    peopleToLoop += `<tr> <td> ${person.first_name} ${person.last_name} ${person.phone_number} </td> <tr>`;
+            //loop through array of people objects and display properties
+            //come back to this to format nicely; don't display the ID
+            this.people_list.forEach(singlePerson => {
+                peopleToLoop += '<tr> <td> ';
+                for (let propertyName in singlePerson) {
+                    peopleToLoop += `${singlePerson[propertyName]} `;
                 }
+                peopleToLoop += '</tr> </td> <br>';
+                //for testing
+                console.log(peopleToLoop);
             });  
-        return peopleToLoop;      
+            //for testing
+            this.item.innerHTML = peopleToLoop;
+            console.log(this.item.innerHTML)
+        return this.item.innerHTML = peopleToLoop;      
     }
-   
+    newPerson.fetchAllThePeople();
 
     
     //create
@@ -68,8 +78,9 @@ document.getElementById("addPersonForm").addEventListener("submit", function(eve
     console.log('Working!'); 
     event.preventDefault();
     newPerson.addPerson();
-    console.log(newPerson.people_list);
+    console.log('here is the list:' + newPerson.fetchAllThePeople());
 });
+
 //read
 //need function here to grab all the camel memes -- loop through camel_memes array and display them
     //maybe count them
