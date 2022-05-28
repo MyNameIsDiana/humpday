@@ -1,11 +1,63 @@
-const people = new function() {
-    //in HTML show list of people -- names and phone numbers -- who should receive texts
-    //read 
-    //need function here to grab all the names/numbers -- loop through array and display them
+class PersonInfo {
+    //need to assign an id number to each person for later use
+    //starts with 0 so the first person added is 1
+    constructor(personId = 0) {
+        //array of person objects that starts empty
+        this.people_list = [];
+        this.personId = personId;
+    }
+    
+    //create method; takes in info from form
+    //might add other fields later
+    addPerson(first_name, last_name, phone_number) {
+
+        //increment personId so it's a new sequential number for each new person
+        this.personId ++;
+
+        //might add other fields later
+        const person = {
+            personId: this.personId, 
+            //use getElementById to grab input from form fields
+            first_name: document.getElementById('first_name').value,
+            last_name: document.getElementById('last_name').value,
+            phone_number: document.getElementById('phone_number').value
+        }
+        //adds the new person object to the array
+        this.people_list.push(person);
+    }
+
+
+//need function here to grab all the names/numbers -- loop through object and display them
     //maybe count them
     //should this save/show the last few memes sent? that way it doesn't send the same meme over and over. maybe don't display the history on main page, but instead display if you click on the name
     //display in HTML file
+    //loop through array and display pics    
+    //read method
+    fetchAllThePeople() {
+        console.log('here');
 
+        this.item = document.getElementById('people-list');
+        let peopleToLoop = '';
+        if (this.people_list.length > 0) {
+            //loop through array of people objects and display properties
+            //come back to this to format nicely; don't display the ID
+            this.people_list.forEach(singlePerson => {
+                peopleToLoop += '<tr> <td> ';
+                for (let propertyName in singlePerson) {
+                    peopleToLoop += `${singlePerson[propertyName]} `;
+                }
+                peopleToLoop += '</tr> </td> <br>';
+                //for testing
+                console.log(peopleToLoop);
+            });  
+            //for testing
+            this.item.innerHTML = peopleToLoop;
+            console.log(this.item.innerHTML)
+        return this.item.innerHTML = peopleToLoop;      
+    }
+    newPerson.fetchAllThePeople();
+
+    
     //create
     //need function here to add new name to the collection
     //need to check if name or phone number is already included, and reject duplicates
@@ -15,7 +67,20 @@ const people = new function() {
 
     //delete
     //need function here to remove name from the collection
+   // deletePerson(personId)
+    }
+    
 }
+
+const newPerson = new PersonInfo();
+
+document.getElementById("addPersonForm").addEventListener("submit", function(event) {
+    console.log('Working!'); 
+    event.preventDefault();
+    newPerson.addPerson();
+    console.log('here is the list:' + newPerson.fetchAllThePeople());
+});
+
 //read
 //need function here to grab all the camel memes -- loop through camel_memes array and display them
     //maybe count them
@@ -38,7 +103,6 @@ const camels = new function() {
             let currentCamelMeme = new Image();
             currentCamelMeme.src = this.camel_memes[i];
             displayAllTheCamels.appendChild(currentCamelMeme);
-
         }
     }
     //create
