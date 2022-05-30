@@ -27,7 +27,7 @@ x How do I add photos to an array? DONE
 
 What about gifs -- things with movement?
 
-Can I add a link to the video? It's on YouTube.
+x Can I add a link to the video? It's on YouTube. DONE
 
 +++
 
