@@ -18,16 +18,20 @@
         -->
         <h1 class="display-4">Guess what day it is?</h1>
         <p class="lead">It's Hump Day! Time to join in my family's goofy Wednesday tradition.</p>
-        <hr class="my-4">
          <!-- Button that triggers why we do this modal -->
          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#why">
             Why we do this
                 </button>
         <!-- Button that triggers commercial modal -->
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#commercial">
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#commercial">
     See the commercial
         </button>
 
+          <!-- Button that triggers add people form modal -->
+          <!-- Work on this later; if no contacts, show button as "Get started." If there are contacts, show button as "My contact list."-->
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#contacts">
+            Get started
+                </button>
 <!-- Modal for why we do this -->
 <div class="modal fade " id="why" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
@@ -51,11 +55,6 @@
       </div>
     </div>
   </div>
-  
-
-
-</div>
-
 
 
 <!-- Modal for commercial -->
@@ -78,31 +77,49 @@
   </div>
   
 
+<!-- Modal for contacts -->
+<div class="modal fade " id="contacts" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">My contact list</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <!--stuff goes here-->
+            <p>Add a person</p>
+            <form id="addPersonForm" action="javascript:void(0);" method="POST">
+                <input type="text" id="first_name" placeholder="First name">
+                <input type="text" id="last_name" placeholder="Last name">
+                <input type="tel" id="phone_number" placeholder="555-123-4567" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <input type="submit" value="Submit">
+            </form>
+            <p id="people-list"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <hr class="my-4">
+
+   
+
+   
+
+
+</div>
+
+
+
+
+<!--end of jumbotron-->
 </div>
 
      
 
-
-    <br>
-    
-        <!--temporary display type-->
-        <p>My contacts</p>
-        <p>(find way to toggle this so user clicks a link to view the list)</p>
-        <p>(when viewing list, need ADD NEW button that opens modal with form)</p>
-        <p id="people-list"></p>
-
-        <!--temporary display type-->
-        <p>Add a person</p>
-        <form id="addPersonForm" action="javascript:void(0);" method="POST">
-            <input type="text" id="first_name" placeholder="First name">
-            <input type="text" id="last_name" placeholder="Last name">
-            <input type="tel" id="phone_number" placeholder="555-123-4567" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-            <input type="submit" value="Submit">
-        </form>
-
-<br>
-<br>
 
         <!--temporary display type-->
         <p>Camel memes</p>
