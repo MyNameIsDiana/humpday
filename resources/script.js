@@ -92,7 +92,6 @@ let mike_memes = ["resources/images/mike_memes/mikememe1.jpeg",
     "resources/images/mike_memes/mikememe5.jpeg"];
 
 function carousel(memeArray, displayID) {
-    //in HTML show all the camel memes I've added   
     //loop through array and display pics    
     renderMemes = [];
                 
@@ -121,6 +120,7 @@ function carousel(memeArray, displayID) {
     //delete
     //need function here to remove meme from the collection
 }
+//call the carousel functions; pass in name of array, location for display
 carousel(camel_memes, "display-all-the-camels");
 
 carousel(mike_memes, "display-all-the-mikes");
