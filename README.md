@@ -34,12 +34,14 @@ x Can I add a link to the video? It's on YouTube. DONE
 People
 ---
 Need a way to see the list of people.
--- Where does this go? On screen or behind a link?
+-- Put this behind a button. If no people in contact list, button says "Get started." If there are people in contact list, button says "My contacts."
+-- After user clicks the button, a modal shows the contact list and a form to add new contact.
+
 Need to be able to edit names and phone numbers.
 Need to be able to delete a person altogether.
 
-It makes sense to be able to add people to a visible list.
-It also makes sense to see people's names with checkboxes on the chosen meme. THat way, in the moment, I can find the meme I want to send and simply check the names of the person/people to send it to.
+It makes sense to be able to add people to a contact list.
+It also makes sense to see people's names with checkboxes on the chosen meme. THat way, in the moment, I can find the meme I want to send and simply check the name(s) of the person/people to send it to.
 
 So the list of people will be shown in two places.
 
@@ -50,13 +52,16 @@ Camels and Mikes
 Need to display the pics/memes in a grid or carousel.
 -- What size should they be?
 -- They are different orientations and ratios. How do I make it look decent with mix of horizontals and verticals, some more exaggerated than others?
-
-When user clicks on an image, it should display checkboxes with names. The user should be able to choose different images for different people. 
+-- Maybe don't display carousels initially. Instead, have user click choice of "Send a camel" or "Send a Mike" first. Then display the appropriate carousel.
+-- When user clicks on an image, it should display checkboxes with names. The user should be able to choose different images for different people. Should this be a card?
 -- Should it be a separate "submit" for each image? Or does the user make all their choices -- choosing five images, one for each person on a list of five -- and then hit a single "submit" for the group?
 -- If a separate "submit," when the display of images refreshes the person who just received a text should not appear in the checkboxes.
 
 When user submits the choice, I should somehow note on the person that they got their text for the week. Add a time/date stamp? A toggle that gets reset every week? Something else?
 
 Need to allow the user to add camels and Mikes to the display.
+
+Texts
+-- Not sure how the texting API works. Will it show the text coming from my phone number? Or something random? If not from my number, how will the recipient know who it's fromt?
 
 
