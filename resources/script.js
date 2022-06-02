@@ -77,33 +77,38 @@ document.getElementById("addPersonForm").addEventListener("submit", function(eve
     //maybe count them
     //display in HTML file the images and the count
  //the array of images -- need to start with a few already in here
- camel_memes = ["resources/images/camel_memes/camelmeme1.jpeg",
- "resources/images/camel_memes/camelmeme2.jpeg",
- "resources/images/camel_memes/camelmeme3.jpeg",
- "resources/images/camel_memes/camelmeme4.jpeg",
- "resources/images/camel_memes/camelmeme5.jpeg"];
+let camel_memes = ["resources/images/camel_memes/camelmeme1.jpeg",
+    "resources/images/camel_memes/camelmeme2.jpeg",
+    "resources/images/camel_memes/camelmeme3.jpeg",
+    "resources/images/camel_memes/camelmeme4.jpeg",
+    "resources/images/camel_memes/camelmeme5.jpeg"];
 
-function camels() {
-    //in HTML show all the camel memes I've added
-    //this.item = document.getElementById('display-all-the-camels');
-   
+//in HTML show all the Mike memes I've added
+//the array of images -- need to start with a few already in here
+let mike_memes = ["resources/images/mike_memes/mikememe1.jpeg",
+    "resources/images/mike_memes/mikememe2.jpeg",
+    "resources/images/mike_memes/mikememe3.jpeg",
+    "resources/images/mike_memes/mikememe4.jpeg",
+    "resources/images/mike_memes/mikememe5.jpeg"];
+
+function carousel(memeArray, displayID) {
+    //in HTML show all the camel memes I've added   
     //loop through array and display pics    
-    renderCamels = [];
+    renderMemes = [];
                 
-    if (camel_memes.length > 0) {
-        for (i = 0; i < camel_memes.length; i++) {
+    if (memeArray.length > 0) {
+        for (i = 0; i < memeArray.length; i++) {
             if (i === 0) {
-                renderCamels += '<div class="carousel-item active">'
+                renderMemes += '<div class="carousel-item active">'
             } else {
-                renderCamels += '<div class="carousel-item">'
+                renderMemes += '<div class="carousel-item">'
             }
-        renderCamels += '<img class="d-block w-100" src="' + camel_memes[i] + '" alt="Slide">';
-        renderCamels += '</div>'
+        renderMemes += '<img class="d-block w-100" src="' + memeArray[i] + '" alt="Slide">';
+        renderMemes += '</div>'
 
     }
-console.log(renderCamels);
    
-        document.getElementById("display-all-the-camels").innerHTML = renderCamels;
+        document.getElementById(displayID).innerHTML = renderMemes;
 
     }
     //create
@@ -116,17 +121,16 @@ console.log(renderCamels);
     //delete
     //need function here to remove meme from the collection
 }
-camels();
-const mikes = new function(){
-    //in HTML show all the Mike memes I've added
-    //this.item = document.getElementById('display-all-the-mikes');
-     //the array of images -- need to start with a few already in here
-    this.mike_memes = ["resources/images/mike_memes/mikememe1.jpeg",
-                       "resources/images/mike_memes/mikememe2.jpeg",
-                       "resources/images/mike_memes/mikememe3.jpeg",
-                       "resources/images/mike_memes/mikememe4.jpeg",
-                       "resources/images/mike_memes/mikememe5.jpeg"];
-    //loop through array and display pics                    
+carousel(camel_memes, "display-all-the-camels");
+
+carousel(mike_memes, "display-all-the-mikes");
+
+
+  
+    
+    //used this just to get images on the page so I could see something
+    //loop through array and display pics  
+    /*                  
     if (this.mike_memes.length > 0) {
         //need variable here instead of document.body.appendchild so I can put this where I want
         let displayAllTheMikes = document.getElementById('display-all-the-mikes')
@@ -136,8 +140,7 @@ const mikes = new function(){
             currentMikeMeme.src = this.mike_memes[i];
             displayAllTheMikes.appendChild(currentMikeMeme);
         }
-    }
-
+*/
 
 //create
 //need function here to add new meme to the collection
@@ -148,7 +151,7 @@ const mikes = new function(){
 
 //delete
 //need function here to remove meme from the collection
-}
+
 
 
 
