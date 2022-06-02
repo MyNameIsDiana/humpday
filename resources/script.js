@@ -7,13 +7,13 @@ class PersonInfo {
         this.personId = personId;
     }
     
-    //create method; takes in info from form
+    //create
+    //take in info from form
     //might add other fields later
+    //need to check if name or phone number is already included, and reject duplicates
     addPerson(first_name, last_name, phone_number) {
-
         //increment personId so it's a new sequential number for each new person
         this.personId ++;
-
         //might add other fields later
         const person = {
             personId: this.personId, 
@@ -26,16 +26,9 @@ class PersonInfo {
         this.people_list.push(person);
     }
 
-
-//need function here to grab all the names/numbers -- loop through object and display them
-    //maybe count them
-    //should this save/show the last few memes sent? that way it doesn't send the same meme over and over. maybe don't display the history on main page, but instead display if you click on the name
-    //display in HTML file
-    //loop through array and display pics    
-    //read method
+    //read
+    //grab all the names/numbers -- loop through object and display them
     fetchAllThePeople() {
-        console.log('here');
-
         this.item = document.getElementById('people-list');
         let peopleToLoop = '';
         if (this.people_list.length > 0) {
@@ -57,27 +50,25 @@ class PersonInfo {
     }
     newPerson.fetchAllThePeople();
 
-    
-    //create
-    //need function here to add new name to the collection
-    //need to check if name or phone number is already included, and reject duplicates
-
     //edit
     //need a way to edit each person's display name and phone number
 
     //delete
     //need function here to remove name from the collection
-   // deletePerson(personId)
+    //deletePerson(personId)
     }
     
 }
 
+//calls the constructor
 const newPerson = new PersonInfo();
 
 document.getElementById("addPersonForm").addEventListener("submit", function(event) {
+    //for testing
     console.log('Working!'); 
     event.preventDefault();
     newPerson.addPerson();
+    //for testing
     console.log('here is the list:' + newPerson.fetchAllThePeople());
 });
 
@@ -85,25 +76,35 @@ document.getElementById("addPersonForm").addEventListener("submit", function(eve
 //need function here to grab all the camel memes -- loop through camel_memes array and display them
     //maybe count them
     //display in HTML file the images and the count
-const camels = new function() {
+ //the array of images -- need to start with a few already in here
+ camel_memes = ["resources/images/camel_memes/camelmeme1.jpeg",
+ "resources/images/camel_memes/camelmeme2.jpeg",
+ "resources/images/camel_memes/camelmeme3.jpeg",
+ "resources/images/camel_memes/camelmeme4.jpeg",
+ "resources/images/camel_memes/camelmeme5.jpeg"];
+
+function camels() {
     //in HTML show all the camel memes I've added
     //this.item = document.getElementById('display-all-the-camels');
-    //the array of images -- need to start with a few already in here
-    this.camel_memes = ["resources/images/camel_memes/camelmeme1.jpeg",
-                        "resources/images/camel_memes/camelmeme2.jpeg",
-                        "resources/images/camel_memes/camelmeme3.jpeg",
-                        "resources/images/camel_memes/camelmeme4.jpeg",
-                        "resources/images/camel_memes/camelmeme5.jpeg"];
-    //loop through array and display pics                    
-    if (this.camel_memes.length > 0) {
-        //need variable here instead of document.body.appendchild so I can put this where I want
-        let displayAllTheCamels = document.getElementById('display-all-the-camels')
-        for (i = 0; i < this.camel_memes.length; i++) {
-            //need to use Image() and appendChild to add to dom
-            let currentCamelMeme = new Image();
-            currentCamelMeme.src = this.camel_memes[i];
-            displayAllTheCamels.appendChild(currentCamelMeme);
-        }
+   
+    //loop through array and display pics    
+    renderCamels = [];
+                
+    if (camel_memes.length > 0) {
+        for (i = 0; i < camel_memes.length; i++) {
+            if (i === 0) {
+                renderCamels += '<div class="carousel-item active">'
+            } else {
+                renderCamels += '<div class="carousel-item">'
+            }
+        renderCamels += '<img class="d-block w-100" src="' + camel_memes[i] + '" alt="Slide">';
+        renderCamels += '</div>'
+
+    }
+console.log(renderCamels);
+   
+        document.getElementById("display-all-the-camels").innerHTML = renderCamels;
+
     }
     //create
     //need function here to add new meme to the collection
@@ -115,7 +116,7 @@ const camels = new function() {
     //delete
     //need function here to remove meme from the collection
 }
-
+camels();
 const mikes = new function(){
     //in HTML show all the Mike memes I've added
     //this.item = document.getElementById('display-all-the-mikes');
