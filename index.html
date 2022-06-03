@@ -19,20 +19,28 @@
         <h1 class="display-4">Guess what day it is?</h1>
         <p class="emoji">	&#128042; &#128042; &#128042;</p>	
         <p class="lead">It's Hump Day! Time to join in my family's goofy Wednesday tradition.</p>
-         <!-- Button that triggers why we do this modal -->
-         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#why">
+         
+        <!-- Button group -->
+        <div class="btn-group btn-group-sm" role="group" aria-label="Buttons that open modals">
+
+          <!-- Button that triggers why we do this modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#why">
             Why we do this
-                </button>
-        <!-- Button that triggers commercial modal -->
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#commercial">
+          </button>
+
+          <!-- Button that triggers commercial modal -->
+          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#commercial">
     See the commercial
-        </button>
+          </button>
 
           <!-- Button that triggers add people form modal -->
           <!-- Work on this later; if no contacts, show button as "Get started." If there are contacts, show button as "My contact list."-->
           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#contacts">
             Get started
-                </button>
+          </button>
+        </div>
+        <!-- Ends button group -->
+
 <!-- Modal for why we do this -->
 <div class="modal fade " id="why" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
@@ -62,100 +70,111 @@
 
 <!-- Modal for commercial -->
 <div class="modal fade " id="commercial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog ">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Our inspiration is at 0:10</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <iframe src="https://www.youtube.com/embed/G2s0RPrdB_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Our inspiration is at 0:10</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <iframe src="https://www.youtube.com/embed/G2s0RPrdB_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
+</div>
   
 
 <!-- Modal for contacts -->
 <div class="modal fade " id="contacts" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog ">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">My contact list</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <!--stuff goes here-->
-            <p>Add a person</p>
-            <form id="addPersonForm" action="javascript:void(0);" method="POST">
-                <input type="text" id="first_name" placeholder="First name">
-                <input type="text" id="last_name" placeholder="Last name">
-                <input type="tel" id="phone_number" placeholder="555-123-4567" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-                <input type="submit" value="Submit">
-            </form>
-            <p id="people-list"></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">My contact list</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!--stuff goes here-->
+        <p>Add a person</p>
+        <form id="addPersonForm" action="javascript:void(0);" method="POST">
+          <input type="text" id="first_name" placeholder="First name">
+          <input type="text" id="last_name" placeholder="Last name">
+          <input type="tel" id="phone_number" placeholder="555-123-4567" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+          <input type="submit" value="Submit">
+        </form>
+        <p id="people-list"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
+</div>
 
-  <hr class="my-4">
+<hr class="my-4">
 
-   
+<div class="row">
+  <div class="col-6">
+    <h6>Send a camel</h3>
+    <figure>
+      <img src="resources/images/send_a_camel.jpg" style="width: 100%" />
+      <!--<figcaption>Photo by Wolfgang Hasselmann on Unsplash</figcaption> -->
+    </figure>
+  </div>
+  <div class="col-6">
+    <h6> Send a Mike</h3>
+    <figure>
+      <img src="resources/images/send_a_mike.jpg" style="width: 100%" />
+      <!--- <figcaption>Photo by Matt Botsford on Unsplash</figcaption>  -->
+    </figure>
+  </div>
+</div>
+
 <!--Carousels here-->
 <!--Camels-->
 <!--Inside container to define width, center it-->
 <div class="carousel-container">
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <p id="display-all-the-camels"></p>
-    
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <p id="display-all-the-camels"></p>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
-</div>
+
+
 <br>
-<br>
-<br>
-<br>
-<br>
+
+
+<!--Mikes-->
+
 
 <!--Inside container to define width, center it-->
 <div class="carousel-container">
-<!--Mikes-->
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <p id="display-all-the-mikes"></p>
-    
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <p id="display-all-the-mikes"></p>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 </div>
 <!--Ends carousels-->
-   
-
-
 </div>
 
 
