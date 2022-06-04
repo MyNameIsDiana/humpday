@@ -103,10 +103,12 @@ function carousel(memeArray, displayID) {
                 renderMemes += '<div class="carousel-item">'
             }
         renderMemes += '<img class="d-block w-100" src="' + memeArray[i] + '" alt="Slide">';
-        renderMemes += '</div>'
+        renderMemes += '</div>';
+
 
     }
-   
+        renderMemes += '<p>Click on an image</>';
+
         document.getElementById(displayID).innerHTML = renderMemes;
 
     }
@@ -120,13 +122,23 @@ function carousel(memeArray, displayID) {
     //delete
     //need function here to remove meme from the collection
 }
-//call the carousel functions; pass in name of array, location for display
-carousel(camel_memes, "display-all-the-camels");
-
-carousel(mike_memes, "display-all-the-mikes");
 
 
-  
+
+
+document.getElementById('launchCamelCarousel').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('hide-them-both').style.display = "none";
+    //call the carousel function; pass in name of array, location for display
+    carousel(camel_memes, "display-all-the-camels");
+})  
+
+document.getElementById('launchMikeCarousel').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('hide-them-both').style.display = "none";
+    //call the carousel function; pass in name of array, location for display
+    carousel(mike_memes, "display-all-the-mikes");
+})
     
     //used this just to get images on the page so I could see something
     //loop through array and display pics  
