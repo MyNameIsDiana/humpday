@@ -24,6 +24,8 @@ class PersonInfo {
         }
         //adds the new person object to the array
         this.people_list.push(person);
+        //clear the form
+        document.getElementById("addPersonForm").reset();
     }
 
     //read
@@ -38,7 +40,7 @@ class PersonInfo {
 
             //loop through array of people objects and display properties
             //come back to this to format nicely; don't display the ID
-            
+
             this.people_list.forEach(singlePerson => {
                 peopleToLoop += '<tr> <td> ';
                 for (let propertyName in singlePerson) {
