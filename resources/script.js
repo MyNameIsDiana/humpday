@@ -32,6 +32,7 @@ class PersonInfo {
         this.item = document.getElementById('people-list');
         let peopleToLoop = '';
         if (this.people_list.length > 0) {
+            document.getElementById("started-or-contact").innerHTML = "My contact list";
             //loop through array of people objects and display properties
             //come back to this to format nicely; don't display the ID
             this.people_list.forEach(singlePerson => {

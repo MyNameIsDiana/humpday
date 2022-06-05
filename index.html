@@ -34,8 +34,8 @@
           </button>
 
           <!-- Button that triggers add people form modal -->
-          <!-- Work on this later; if no contacts, show button as "Get started." If there are contacts, show button as "My contact list."-->
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#contacts">
+          <!-- If contact list is empty, button says "Get started"; if at least one contact, button says "My contact list"-->
+          <button id="started-or-contact" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#contacts">
             Get started
           </button>
         </div>
@@ -137,7 +137,6 @@
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <p id="display-all-the-camels"></p>
-      <h3>Click on an</h3>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
