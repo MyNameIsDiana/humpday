@@ -32,9 +32,13 @@ class PersonInfo {
         this.item = document.getElementById('people-list');
         let peopleToLoop = '';
         if (this.people_list.length > 0) {
+            //change button text, modal headline once there is at least one person in list
             document.getElementById("started-or-contact").innerHTML = "My contact list";
+            document.getElementById("contact-list-label").innerHTML = "My contact list";
+
             //loop through array of people objects and display properties
             //come back to this to format nicely; don't display the ID
+            
             this.people_list.forEach(singlePerson => {
                 peopleToLoop += '<tr> <td> ';
                 for (let propertyName in singlePerson) {
