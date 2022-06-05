@@ -97,14 +97,15 @@
       </div>
       <div class="modal-body">
         <!--stuff goes here-->
+        <p id="people-list"></p>
+
         <p>Add a person</p>
         <form id="addPersonForm" action="javascript:void(0);" method="POST">
-          <input type="text" id="first_name" placeholder="First name">
-          <input type="text" id="last_name" placeholder="Last name">
+          <input type="text" id="first_name" placeholder="First name" required>
+          <input type="text" id="last_name" placeholder="Last name" required>
           <input type="tel" id="phone_number" placeholder="555-123-4567" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
           <input type="submit" value="Submit">
         </form>
-        <p id="people-list"></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
