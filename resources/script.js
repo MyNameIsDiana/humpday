@@ -35,8 +35,8 @@ class PersonInfo {
         let peopleToLoop = '';
         if (this.people_list.length > 0) {
             //change button text, modal headline once there is at least one person in list
-            document.getElementById("started-or-contact").innerHTML = "My contact list";
-            document.getElementById("contact-list-label").innerHTML = "My contact list";
+            document.getElementById("started-or-contact").innerHTML = "My contacts list";
+            document.getElementById("contact-list-label").innerHTML = "My contacts list";
 
             //loop through array of people objects and display properties
             //come back to this to format nicely; don't display the ID
@@ -49,13 +49,7 @@ class PersonInfo {
                     <div class="col" style="font-weight:bold"> ${singlePerson.first_name} ${singlePerson.last_name}</div>
                     <div class="col" style="text-align:right"> ${singlePerson.phone_number} </div>
                     </div> ` ;
-                    
-                
                 //peopleToLoop += '</tr> </td> <br>';
-                
-                
-
-
             });  
             //for testing
             this.item.innerHTML = peopleToLoop;
