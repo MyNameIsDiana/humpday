@@ -88,28 +88,36 @@
   
 
 <!-- Modal for contacts -->
-<div class="modal fade " id="contacts" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="contacts" tabindex="-1" aria-labelledby="contact-list-label" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">My contact list</h5>
+        <!--Headline changes once at least one person in list-->
+        <h5 class="modal-title" id="contact-list-label">Contact list is empty!</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <!--stuff goes here-->
+        <div class="container">
+          <!--Moved some HTML to JS file-->
+            <p id="people-list"></p>
+        </div>
+      </div>
+
+
+
         <p>Add a person</p>
         <form id="addPersonForm" action="javascript:void(0);" method="POST">
-          <input type="text" id="first_name" placeholder="First name">
-          <input type="text" id="last_name" placeholder="Last name">
+          <input type="text" id="first_name" placeholder="First name" required>
+          <input type="text" id="last_name" placeholder="Last name" required>
           <input type="tel" id="phone_number" placeholder="555-123-4567" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
           <input type="submit" value="Submit">
         </form>
-        <p id="people-list"></p>
-      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
-    </div>
+      </div>
+  <!--ends modal-dialog-->
   </div>
 </div>
 

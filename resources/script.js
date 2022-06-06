@@ -24,6 +24,8 @@ class PersonInfo {
         }
         //adds the new person object to the array
         this.people_list.push(person);
+        //clear the form
+        document.getElementById("addPersonForm").reset();
     }
 
     //read
@@ -32,17 +34,28 @@ class PersonInfo {
         this.item = document.getElementById('people-list');
         let peopleToLoop = '';
         if (this.people_list.length > 0) {
+            //change button text, modal headline once there is at least one person in list
             document.getElementById("started-or-contact").innerHTML = "My contact list";
+            document.getElementById("contact-list-label").innerHTML = "My contact list";
+
             //loop through array of people objects and display properties
             //come back to this to format nicely; don't display the ID
+
             this.people_list.forEach(singlePerson => {
-                peopleToLoop += '<tr> <td> ';
-                for (let propertyName in singlePerson) {
-                    peopleToLoop += `${singlePerson[propertyName]} `;
-                }
-                peopleToLoop += '</tr> </td> <br>';
-                //for testing
-                console.log(peopleToLoop);
+                //peopleToLoop += '<tr> <td> ';
+                //Don't show ID; just first and last name. So singlePerson.first_name and singlePerson.last_name.
+    
+                peopleToLoop += `  <div class="row">
+                    <div class="col" style="font-weight:bold"> ${singlePerson.first_name} ${singlePerson.last_name}</div>
+                    <div class="col" style="text-align:right"> ${singlePerson.phone_number} </div>
+                    </div> ` ;
+                    
+                
+                //peopleToLoop += '</tr> </td> <br>';
+                
+                
+
+
             });  
             //for testing
             this.item.innerHTML = peopleToLoop;
