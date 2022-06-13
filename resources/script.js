@@ -26,6 +26,18 @@ class PersonInfo {
         this.people_list.push(person);
         //clear the form
         document.getElementById("addPersonForm").reset();
+
+        ////STARTS LOCALSTORAGE
+        ///if (localStorage. getItem("people_list") === null) {
+
+
+
+        //creates a json string of the people list
+        const peopleListJson = JSON.stringify(this.people_list);
+
+        //stores the json string in local storage 
+        localStorage.setItem("people_list", peopleListJson);
+        ////ENDS LOCALSTORAGE
     }
 
     //read
