@@ -1,4 +1,4 @@
-# humpday
+# Hump Day
 
 In 2015 one of my kids started a family tradition when on a random Wednesday she texted me three camel emojis. 
 
@@ -20,12 +20,8 @@ Yes, this is a silly app.
 TO DO:
 
 People
-User can add people to contact list; use local storage.
-User can edit names and phone numbers.
-User can delete a person from contact list.
-
-Make new person form look nicer.
-Display list of contacts without the ID.
+Allow user to edit names and phone numbers.
+Allow user to delete a person from contact list.
 
 
 Camels and Mikes
@@ -41,7 +37,9 @@ I am not sure how the texting API works. Will it show the text coming from my ph
 
 When user submits the choice, I should somehow note on the person that they got their text for the week. Add a time/date stamp? A toggle that gets reset every week? Something else?
 
-
+Appearance
+Make add-a-person form look nicer.
+Make contacts list look nicer.
 
 
 
