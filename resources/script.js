@@ -2,20 +2,9 @@ class PersonInfo {
     //need to assign an id number to each person for later use
     //starts with 0 so the first person added is 1
     constructor(personId = 0) {
-        //array of person objects that starts empty UNLESS there is already info in localstorage
-        if (localStorage.getItem("people_list") === null)   {
-                  this.people_list = [];
-        } else {
-            //grab what's in localstorage and parse it; set it to people_list array of person objects
-            const retrievePeopleList = localStorage.getItem("people_list");
-            const parsedRetrievePeopleList = JSON.parse(retrievePeopleList);
-            this.people_list = parsedRetrievePeopleList;
-        }
-        console.log('here is the people list: ' + this.people_list[0],first_name);
+        
         this.personId = personId;
     }
-    
-
 
     //create
     //take in info from form
@@ -24,6 +13,15 @@ class PersonInfo {
     addPerson(first_name, last_name, phone_number) {
         //increment personId so it's a new sequential number for each new person
         this.personId ++;
+
+        ////STARTS LOCALSTORAGE section
+        //array of person objects that starts empty UNLESS there is already info in localstorage
+        let people_list = JSON.parse(localStorage.getItem("people_list"));
+        if (people_list === null) {
+            people_list = [];
+        }
+        console.log('people_list: ' + people_list)
+        
         //might add other fields later
         const person = {
             personId: this.personId, 
@@ -32,21 +30,16 @@ class PersonInfo {
             last_name: document.getElementById('last_name').value,
             phone_number: document.getElementById('phone_number').value
         }
+        
+        //localStorage.setItem("person", JSON.stringify(person));
+        //saves to local storage
         //adds the new person object to the array
-        this.people_list.push(person);
+        people_list.push(person);
+        localStorage.setItem("people_list", JSON.stringify(people_list));
         //clear the form so the words just typed don't hang around there
         document.getElementById("addPersonForm").reset();
-
+        ////ENDS LOCALSTORAGE        
         
-        ////STARTS LOCALSTORAGE section
-        //creates a json string of the people list
-        const storePeopleListJson = JSON.stringify(this.people_list);
-
-        //stores the json string in local storage 
-        localStorage.setItem("people_list", storePeopleListJson);
-
-        
-        ////ENDS LOCALSTORAGE
 
 
     }
@@ -56,8 +49,10 @@ class PersonInfo {
     fetchAllThePeople() {
         this.item = document.getElementById('people-list');
         let peopleToLoop = '';
+        let people_list = JSON.parse(localStorage.getItem("people_list"));
+
             
-            if (this.people_list.length > 0) {
+        //if (this.people_list.length > 0) {
 
             //change button text, modal headline once there is at least one person in list
             document.getElementById("started-or-contact").innerHTML = "My contacts list";
@@ -66,7 +61,7 @@ class PersonInfo {
             //loop through array of people objects and display properties
             //come back to this to format nicely; don't display the ID
 
-            this.people_list.forEach(singlePerson => {
+            people_list.forEach(singlePerson => {
                 //peopleToLoop += '<tr> <td> ';
                 //Don't show ID; just first and last name. So singlePerson.first_name and singlePerson.last_name.
     
@@ -80,7 +75,7 @@ class PersonInfo {
             this.item.innerHTML = peopleToLoop;
             console.log(this.item.innerHTML)
         return this.item.innerHTML = peopleToLoop;      
-    }
+    //}
     newPerson.fetchAllThePeople();
 
     //edit
