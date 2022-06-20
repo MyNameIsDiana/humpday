@@ -2,10 +2,8 @@ class PersonInfo {
     //need to assign an id number to each person for later use
     //starts with 0 so the first person added is 1
     constructor(personId = 0) {
-        
         this.personId = personId;
     }
-
     //create
     //take in info from form
     //might add other fields later
@@ -13,14 +11,11 @@ class PersonInfo {
     addPerson(first_name, last_name, phone_number) {
         //increment personId so it's a new sequential number for each new person
         this.personId ++;
-
-        ////STARTS LOCALSTORAGE section
         //array of person objects that starts empty UNLESS there is already info in localstorage
         let people_list = JSON.parse(localStorage.getItem("people_list"));
         if (people_list === null) {
             people_list = [];
         }
-        console.log('people_list: ' + people_list)
         
         //might add other fields later
         const person = {
@@ -31,16 +26,13 @@ class PersonInfo {
             phone_number: document.getElementById('phone_number').value
         }
         
-        //localStorage.setItem("person", JSON.stringify(person));
         //saves to local storage
         //adds the new person object to the array
         people_list.push(person);
         localStorage.setItem("people_list", JSON.stringify(people_list));
         //clear the form so the words just typed don't hang around there
         document.getElementById("addPersonForm").reset();
-        ////ENDS LOCALSTORAGE        
-        
-
+        newPerson.fetchAllThePeople();
 
     }
 
@@ -50,14 +42,13 @@ class PersonInfo {
         this.item = document.getElementById('people-list');
         let peopleToLoop = '';
         let people_list = JSON.parse(localStorage.getItem("people_list"));
+        console.log('the length: ' + people_list.length);
 
-            
-        //if (this.people_list.length > 0) {
-
+        if (people_list) {
             //change button text, modal headline once there is at least one person in list
             document.getElementById("started-or-contact").innerHTML = "My contacts list";
             document.getElementById("contact-list-label").innerHTML = "My contacts list";
-
+            
             //loop through array of people objects and display properties
             //come back to this to format nicely; don't display the ID
 
@@ -72,10 +63,10 @@ class PersonInfo {
                 //peopleToLoop += '</tr> </td> <br>';
             });  
             //for testing
-            this.item.innerHTML = peopleToLoop;
-            console.log(this.item.innerHTML)
+            //this.item.innerHTML = peopleToLoop;
+            //console.log(this.item.innerHTML)
         return this.item.innerHTML = peopleToLoop;      
-    //}
+    }
     newPerson.fetchAllThePeople();
 
     //edit
@@ -90,14 +81,22 @@ class PersonInfo {
 
 //calls the constructor
 const newPerson = new PersonInfo();
+//change button text, modal headline once there is at least one person in list
+let people_list = JSON.parse(localStorage.getItem("people_list"));
+if (people_list) {
+    //change button text, modal headline once there is at least one person in list
+    document.getElementById("started-or-contact").innerHTML = "My contacts list";
+    document.getElementById("contact-list-label").innerHTML = "My contacts list";
+    newPerson.fetchAllThePeople();
+}
 
 document.getElementById("addPersonForm").addEventListener("submit", function(event) {
     //for testing
-    console.log('Working!'); 
+    //console.log('Working!'); 
     event.preventDefault();
     newPerson.addPerson();
     //for testing
-    console.log('here is the list:' + newPerson.fetchAllThePeople());
+    //console.log('here is the list:' + newPerson.fetchAllThePeople());
 });
 
 //read
